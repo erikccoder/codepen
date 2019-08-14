@@ -1,0 +1,74 @@
+$time: .3s;
+$delay_time: .3s;
+$texts_count: 6;
+
+
+body{
+  font-size: 60px;
+  color: white;
+  background: black;
+}
+
+.cam{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;  
+  
+  &.shake{
+    animation: shake $time linear $time*.87 $texts_count;
+    
+  }
+}
+
+
+h1
+{
+  margin: 0;     
+  &.ready{
+    transform: translate3d(0, 100vh, 0);
+  }
+  @for $i from 0 to $texts_count 
+  {
+    &:nth-child(#{$i+1}) 
+    {
+       animation-delay: $i*$delay_time;
+    }
+  }
+}
+
+.launch{
+  animation: missile $time ease-in;
+}
+
+@keyframes missile{
+  from
+  {
+    transform: translate3d(0, 100vh, 0); 
+  }
+  to
+  {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+    background: linear-gradient(70deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, rgba(253,37,31,1) 75%, rgba(252,176,69,1) 99%);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+    background: linear-gradient(-60deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, rgba(253,37,31,1) 75%, rgba(252,176,69,1) 99%);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
