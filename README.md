@@ -1,6 +1,6 @@
 # Codepen
 
-This repo is my backup of [codepen.io](codepen.io)
+This repo is my backup of [https://codepen.io/erikccoder](codepen.io)
 
 
 Welcome to share and comment
