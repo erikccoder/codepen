@@ -1,4 +1,6 @@
-# Preview: [codepen](https://codepen.io/erikccoder/pen/NQORVV)
+# Summary:
+
+Onlie Demo: [codepen](https://codepen.io/erikccoder/pen/NQORVV)
 
 This is a proposed effect for https://happyformun.com. But, sadly iOS seems doesn’t support clip-path animation.
 
