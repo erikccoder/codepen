@@ -1,0 +1,191 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+    <title>CodePen - 核彈都唔割</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <style>
+        body {
+            font-size: 60px;
+            color: white;
+            background: black;
+        }
+        
+        .cam {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .cam.shake {
+            -webkit-animation: shake 0.3s linear 0.261s 6;
+            animation: shake 0.3s linear 0.261s 6;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+        
+        h1.ready {
+            -webkit-transform: translate3d(0, 100vh, 0);
+            transform: translate3d(0, 100vh, 0);
+        }
+        
+        h1:nth-child(1) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+        
+        h1:nth-child(2) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+        
+        h1:nth-child(3) {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+        
+        h1:nth-child(4) {
+            -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+        }
+        
+        h1:nth-child(5) {
+            -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s;
+        }
+        
+        h1:nth-child(6) {
+            -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
+        }
+        
+        .launch {
+            -webkit-animation: missile 0.3s ease-in;
+            animation: missile 0.3s ease-in;
+        }
+        
+        @-webkit-keyframes missile {
+            from {
+                -webkit-transform: translate3d(0, 100vh, 0);
+                transform: translate3d(0, 100vh, 0);
+            }
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        
+        @keyframes missile {
+            from {
+                -webkit-transform: translate3d(0, 100vh, 0);
+                transform: translate3d(0, 100vh, 0);
+            }
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        
+        @-webkit-keyframes shake {
+            10%,
+            90% {
+                -webkit-transform: translate3d(-1px, 0, 0);
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%,
+            80% {
+                -webkit-transform: translate3d(2px, 0, 0);
+                transform: translate3d(2px, 0, 0);
+                background: linear-gradient(70deg, #833ab4 0%, #fd1d1d 0%, #fd251f 75%, #fcb045 99%);
+            }
+            30%,
+            50%,
+            70% {
+                -webkit-transform: translate3d(-4px, 0, 0);
+                transform: translate3d(-4px, 0, 0);
+                background: linear-gradient(-60deg, #833ab4 0%, #fd1d1d 0%, #fd251f 75%, #fcb045 99%);
+            }
+            40%,
+            60% {
+                -webkit-transform: translate3d(4px, 0, 0);
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+        
+        @keyframes shake {
+            10%,
+            90% {
+                -webkit-transform: translate3d(-1px, 0, 0);
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%,
+            80% {
+                -webkit-transform: translate3d(2px, 0, 0);
+                transform: translate3d(2px, 0, 0);
+                background: linear-gradient(70deg, #833ab4 0%, #fd1d1d 0%, #fd251f 75%, #fcb045 99%);
+            }
+            30%,
+            50%,
+            70% {
+                -webkit-transform: translate3d(-4px, 0, 0);
+                transform: translate3d(-4px, 0, 0);
+                background: linear-gradient(-60deg, #833ab4 0%, #fd1d1d 0%, #fd251f 75%, #fcb045 99%);
+            }
+            40%,
+            60% {
+                -webkit-transform: translate3d(4px, 0, 0);
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="cam shake">
+        <h1 class="launch">#</h1>
+        <h1 class="launch">核</h1>
+        <h1 class="launch">彈</h1>
+        <h1 class="launch">都</h1>
+        <h1 class="launch">唔</h1>
+        <h1 class="launch">割</h1>
+    </div>
+    <script id="rendered-js">
+        const LOOP_TIME = 5000;
+
+        const texts = document.querySelectorAll('h1');
+        const cam = document.querySelector('.cam');
+
+        function launchMissle(ele) {
+            ele.classList.remove('launch');
+            setTimeout(
+                () => {
+                    ele.classList.add('launch');
+                },
+                10);
+
+        }
+
+        function shakeIt(ele) {
+            ele.classList.remove('shake');
+            setTimeout(() => ele.classList.add('shake'), 10);
+        }
+
+        function loop() {
+            console.log('loop');
+            texts.forEach((t, i) => launchMissle(t));
+            shakeIt(cam);
+            setTimeout(loop, LOOP_TIME);
+        }
+        loop();
+        //# sourceURL=pen.js
+    </script>
+
+</body>
+
+</html>
