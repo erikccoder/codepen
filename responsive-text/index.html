@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Text</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            font-family: "Ubuntu", "Times New Roman", Times, serif;
+            font-weight: normal;
+            font-style: normal;
+            background: #22c1c3;
+            background: linear-gradient(90deg, #22c1c3 0%, #fdbb2d 100%);
+            -webkit-animation-name: aniBG;
+            animation-name: aniBG;
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            background-size: 400% 400%;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+        
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60vmin;
+            height: 60vmin;
+            border: 1vmin solid white;
+        }
+        
+        h1 {
+            font-size: 8vmin;
+            line-height: 1em;
+            letter-spacing: .12em;
+        }
+        
+        @-webkit-keyframes aniBG {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 50% 90%;
+            }
+        }
+        
+        @keyframes aniBG {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 50% 90%;
+            }
+        }
+    </style>
+
+</head>
+
+<body translate="no">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;display=swap" rel="stylesheet">
+    <div class="flex-center">
+        <h1>
+          Wind
+          <br>
+          Interactive
+        </h1>
+    </div>
+
+</body>
+
+</html>
